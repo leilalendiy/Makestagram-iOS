@@ -20,7 +20,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="gvn-P0-JeP"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="tab_plus_black" id="pne-1j-6M3">
+                    <tabBarItem key="tabBarItem" tag="1" title="" image="tab_plus_black" id="pne-1j-6M3">
                         <inset key="imageInsets" minX="0.0" minY="7" maxX="0.0" maxY="-7"/>
                     </tabBarItem>
                 </viewController>
@@ -38,7 +38,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="KgZ-go-B9b"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="tab_profile_black" id="OzK-QE-mJv">
+                    <tabBarItem key="tabBarItem" tag="2" title="" image="tab_profile_black" id="OzK-QE-mJv">
                         <inset key="imageInsets" minX="0.0" minY="7" maxX="0.0" maxY="-7"/>
                     </tabBarItem>
                 </viewController>
@@ -64,11 +64,11 @@
             </objects>
             <point key="canvasLocation" x="-97" y="-645"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Main Tab Bar Controller-->
         <scene sceneID="Im0-dY-AiV">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dSv-Fo-cIL" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tabBarController id="KV1-oB-9E4" sceneMemberID="viewController">
+                <tabBarController id="KV1-oB-9E4" customClass="MainTabBarController" customModule="Makestagram" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="SV1-BH-sl0">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
