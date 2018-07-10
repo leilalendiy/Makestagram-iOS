@@ -6,7 +6,6 @@
 //  Copyright © 2018 Make School. All rights reserved.
 //
 
-import Foundation
 import FirebaseAuth.FIRUser
 import FirebaseDatabase
 
