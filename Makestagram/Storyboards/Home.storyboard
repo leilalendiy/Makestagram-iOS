@@ -22,18 +22,32 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PostImageCell" id="VsN-Am-KO9">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="PostImageCell" rowHeight="375" id="VsN-Am-KO9" customClass="PostImageCell" customModule="Makestagram" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="375"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="VsN-Am-KO9" id="p4y-RE-xg3">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="374.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Vwk-1v-WA5">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="374.5"/>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Vwk-1v-WA5" firstAttribute="top" secondItem="p4y-RE-xg3" secondAttribute="top" id="3nA-rV-XOt"/>
+                                                <constraint firstAttribute="bottom" secondItem="Vwk-1v-WA5" secondAttribute="bottom" id="O7G-ul-ffr"/>
+                                                <constraint firstAttribute="trailing" secondItem="Vwk-1v-WA5" secondAttribute="trailing" id="v2p-ii-rAe"/>
+                                                <constraint firstItem="Vwk-1v-WA5" firstAttribute="leading" secondItem="p4y-RE-xg3" secondAttribute="leading" id="xUx-t6-Vki"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="postImageView" destination="Vwk-1v-WA5" id="6cA-t5-XZg"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="r4a-qd-QKU" id="qDw-Zc-ZgW"/>
-                                    <outlet property="delegate" destination="r4a-qd-QKU" id="dnx-St-Vwk"/>
+                                    <outlet property="delegate" destination="r4a-qd-QKU" id="swP-O2-kYu"/>
                                 </connections>
                             </tableView>
                         </subviews>
@@ -53,7 +67,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n9f-92-PKa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="515" y="-646"/>
+            <point key="canvasLocation" x="686" y="-645"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="EKT-sj-aD1">
