@@ -21,6 +21,8 @@ class HomeViewController: UIViewController {
         return dateFormatter
     }()
     
+    let refreshControl = UIRefreshControl()
+    
     // MARK: - Subviews
     
     @IBOutlet weak var tableView: UITableView!
@@ -31,11 +33,7 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         
         configureTableView()
-        
-        UserService.posts(for: User.current) { (posts) in
-            self.posts = posts
-            self.tableView.reloadData()
-        }
+        reloadTimeline()
     }
     
     func configureTableView() {
@@ -43,6 +41,10 @@ class HomeViewController: UIViewController {
         tableView.tableFooterView = UIView()
         // remove separators from cells
         tableView.separatorStyle = .none
+        
+        // add pull to refresh
+        refreshControl.addTarget(self, action: #selector(reloadTimeline), for: .valueChanged)
+        tableView.addSubview(refreshControl)
     }
 }
 
@@ -59,7 +61,7 @@ extension HomeViewController: UITableViewDataSource {
         switch indexPath.row {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "PostHeaderCell") as! PostHeaderCell
-            cell.usernameLabel.text = User.current.username
+            cell.usernameLabel.text = post.poster.username
             
             return cell
             
@@ -90,6 +92,18 @@ extension HomeViewController: UITableViewDataSource {
         cell.timeAgoLabel.text = timestampFormatter.string(from: post.creationDate)
         cell.likeButton.isSelected = post.isLiked
         cell.likeCountLabel.text = "\(post.likeCount) likes"
+    }
+    
+    @objc func reloadTimeline() {
+        UserService.timeline { (posts) in
+            self.posts = posts
+            
+            if self.refreshControl.isRefreshing {
+                self.refreshControl.endRefreshing()
+            }
+            
+            self.tableView.reloadData()
+        }
     }
 }
 
